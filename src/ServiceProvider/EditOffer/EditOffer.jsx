@@ -55,7 +55,7 @@ export default function EditOffer(props) {
         window.scroll({
             top: 0,
             left: 0,
-          });
+        });
         getDetails(props.match.params.id)
     }, [])
     return (
@@ -90,10 +90,10 @@ export default function EditOffer(props) {
 
 
                                 <div class="col-12">
-
-
-                                    <input type="file" name="fileImage" accept="image/*" multiple={false} onChange={onChangeFile} />
-
+                                    <label for="file-upload" class="custom-file-upload">
+                                        <i class="bi bi-card-image"></i> Image
+                                    </label>
+                                    <input id="file-upload" type="file" name="fileImage" accept="image/*" multiple={false} onChange={onChangeFile} />
                                 </div>
                                 <div class="col-lg-6 col-10 mx-auto">
                                     <input class="btn btn-primary w-50" type="submit" value="Save" />

@@ -17,28 +17,70 @@ import ProfileSp from './ServiceProvider/ProfileSp/ProfileSp';
 import SideNav from './component/SideNav/SideNav';
 import Login from './Login/Login';
 import Register from './Register/Register';
+import { getCookie } from './cookies';
 
 export default function Routes() {
-
-    return (
+    // const {session:{user:{token}}}=useContext(SessionContext)
+    const token=getCookie('token')
+            return (
         <Switch>
             
             
-            <Route exact path="/home"  component={HomePage} />
-            <Route exact path="/offers"  component={PostsPage} />
-            <Route exact path="/myoffer"  component={OfferPage} />
-            <Route exact path="/offerdetail/:id"  component={BlogDetails} />
-            <Route exact path="/addoffer"  component={AddOffer} />
-            <Route exact path="/editoffer/:id"  component={EditOffer} />
-            <Route exact path="/serviceprovider"  component={ServiceProviderPage} />
-            <Route exact path="/serviceproviderdetails/:id"  component={UserDetails} />
-            <Route exact path="/contact"  component={Contact} />
-            <Route exact path="/rating/:id"  component={Rating} />
-            <Route exact path="/profile"  component={ProfileSp} />
-            <Route exact path="/dashboard"  component={SideNav} />
-            <Route exact path="/login"  component={Login} />
-            <Route exact path="/register"  component={Register} />
+            <PublicRoute exact path="/home"  component={HomePage} />
+            <PublicRoute exact path="/offers"  component={PostsPage} />
+            <PublicRoute exact path="/offerdetail/:id"  component={BlogDetails} />
+            <PublicRoute exact path="/serviceprovider"  component={ServiceProviderPage} />
+            <PublicRoute exact path="/serviceproviderdetails/:id"  component={UserDetails} />
+            <PublicRoute exact path="/contact"  component={Contact} />
+            <PublicRoute exact path="/rating/:id"  component={Rating} />
+            <PublicRoute exact path="/dashboard"  component={SideNav} />
+            <PublicRoute exact path="/login"  component={Login} token={token}/>
+            <PublicRoute exact path="/register"  component={Register} />
+
+            <Route exact path="/addoffer"  component={AddOffer} token={token}/>
+            <Route exact path="/editoffer/:id"  component={EditOffer} token={token}/>
+            <Route exact path="/profile"  component={ProfileSp} token={token}/>
+            <Route exact path="/myoffer"  component={OfferPage} token={token}/>
+
 
         </Switch>
+        
+
+        
     );
+
+
+    function PublicRoute({ path, component: Component, token, ...props }) {
+        return (
+          <>
+            <Route
+              {...props}
+              path={path}
+              render={(props) =>
+                token ? <Redirect to="/home" /> : <Component {...props} />
+              }
+            />
+          </>
+        );
+      }
+      
+      function PrivateRoute({ path, component: Component, token, role, ...props }) {
+        return (
+          <Route
+            {...props}
+            path={path}
+            render={(props) => {
+              let redirectTo = null;
+              if (!token)
+              return(
+                <Redirect to={'/login'} />
+
+              )
+            //   return <Redirect to={path} />;
+           
+             
+            }}
+          />
+        );
+      }
 }
