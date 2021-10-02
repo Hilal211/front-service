@@ -14,7 +14,7 @@ export default function CartServiceProvider(props){
                   </div>
                 </div>
                 <Link to={`/serviceproviderdetails/${props.id}`} class="member-info">
-                  <h4>{props.userName}</h4>
+                  <h4 class="nameSp">{props.userName}</h4>
                   <span>{props.magor}</span>
                   <p>{props.description}</p>
                 </Link>

@@ -59,15 +59,15 @@ export default function Contact(){
                 <div class="row gy-4">
   
                   <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required/>
+                    < input autoComplete="off" type="text" name="name" class="form-control" placeholder="Your Name" required/>
                   </div>
   
                   <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required/>
+                    < input autoComplete="off" type="email" class="form-control" name="email" placeholder="Your Email" required/>
                   </div>
   
                   <div class="col-md-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required/>
+                    < input autoComplete="off" type="text" class="form-control" name="subject" placeholder="Subject" required/>
                   </div>
   
                   <div class="col-md-12">

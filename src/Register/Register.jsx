@@ -45,35 +45,35 @@ export default function Register() {
                         <form method="POST" class="register-form" id="register-form">
                             <div class="form-group">
                                 <label class="labell" for="name"><i class="iconl bi bi-person-fill"></i></label>
-                                <input class="inputl" type="text" name="name" id="name" placeholder="UserName" />
+                                < input autoComplete="off" class="inputl" type="text" name="name" id="name" placeholder="UserName" />
                             </div>
                             <div class="form-group">
                                 <label class="labell" for="email"><i class="iconl bi bi-envelope-fill"></i></label>
-                                <input class="inputl" type="email" name="email" id="email" placeholder="Email" />
+                                < input autoComplete="off" class="inputl" type="email" name="email" id="email" placeholder="Email" />
                             </div>
                             <div class="form-group">
                                 <label class="labell" for="pass"><i class="iconl bi bi-shield-lock-fill"></i></label>
-                                <input class="inputl" type="password" name="pass" id="pass" placeholder="Password" />
+                                < input autoComplete="off" class="inputl" type="password" name="pass" id="pass" placeholder="Password" />
                             </div>
                             <div class="form-group">
                                 <label class="labell" for="ph"><i class="iconl bi bi-phone-fill"></i></label>
-                                <input class="inputl" type="text" name="ph" id="re_pass" placeholder="PhoneNumber" />
+                                < input autoComplete="off" class="inputl" type="text" name="ph" id="re_pass" placeholder="PhoneNumber" />
                             </div>
                             <div class="form-group">
                                 <label class="labell" for="inst"><i class="iconl bi bi-instagram"></i></label>
-                                <input class="inputl" type="text" name="inst" id="re_pass" placeholder="InstagramLink" />
+                                < input autoComplete="off" class="inputl" type="text" name="inst" id="re_pass" placeholder="InstagramLink" />
                             </div>
                             <div class="form-group">
                                 <label class="labell" for="fb"><i class="iconl bi bi-facebook"></i></label>
-                                <input class="inputl" type="text" name="fb" id="re_pass" placeholder="FacebookLink" />
+                                < input autoComplete="off" class="inputl" type="text" name="fb" id="re_pass" placeholder="FacebookLink" />
                             </div>
                             <div class="form-group">
                                 <label class="labell" for="mg"><i class="iconl bi bi-award"></i></label>
-                                <input class="inputl" type="text" name="mg" id="re_pass" placeholder="Magor" />
+                                < input autoComplete="off" class="inputl" type="text" name="mg" id="re_pass" placeholder="Magor" />
                             </div>
                             <div class="form-group">
                                 <label class="labell" for="desc"><i class="iconl bi bi-file-person"></i></label>
-                                <input class="inputl" type="text" name="desc" id="re_pass" placeholder="About yourself     " />
+                                < input autoComplete="off" class="inputl" type="text" name="desc" id="re_pass" placeholder="About yourself     " />
                             </div>
                             <div class="row">
                                 <div class="col-lg-12 d-flex justify-content-center">
@@ -97,7 +97,7 @@ export default function Register() {
                                 </select>                            </div>
 
                             <div class="form-group form-button">
-                                <input class="inputl" type="submit" name="signup" id="signup" class="loginb tn btn-primary w-50 " value="Register" />
+                                < input autoComplete="off" class="inputl" type="submit" name="signup" id="signup" class="loginb tn btn-primary w-50 " value="Register" />
                             </div>
 
                         </form>

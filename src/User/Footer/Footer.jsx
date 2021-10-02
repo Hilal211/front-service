@@ -1,5 +1,6 @@
 import './Footer.css'
 import logo from '../../image/logo.png'
+import { Link } from 'react-router-dom';
 export default function Footer(){
     return(
         <footer id="footer" class="footer">
@@ -10,27 +11,27 @@ export default function Footer(){
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-5 col-md-12 footer-info">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <Link href="index.html" class="logo d-flex align-items-center">
               <img src={logo} alt=""/>
               <span>Services</span>
-            </a>
+            </Link>
             <p>The best website for the best services worldwide. We hope that we can help you and solve your problems. We are thankful for your honset feedback</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
+              <Link href="#" class="twitter"><i class="bi bi-twitter"></i></Link>
+              <Link href="#" class="facebook"><i class="bi bi-facebook"></i></Link>
+              <Link href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></Link>
+              <Link href="#" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></Link>
             </div>
           </div>
 
           <div class="col-lg-2 col-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Service Provider</a></li>
-              <li><i class="bi bi-chevron-right"></i> <a href="#">Contact</a></li>
+              <li><i class="bi bi-chevron-right"></i> <Link to="/home">Home</Link></li>
+              <li><i class="bi bi-chevron-right"></i> <Link to="/about">About us</Link></li>
+              <li><i class="bi bi-chevron-right"></i> <Link to="/offers">Offers</Link></li>
+              <li><i class="bi bi-chevron-right"></i> <Link to="/serviceprovider">Service Provider</Link></li>
+              <li><i class="bi bi-chevron-right"></i> <Link to="/contact">Contact</Link></li>
             </ul>
           </div>
 

@@ -18,6 +18,7 @@ import SideNav from './component/SideNav/SideNav';
 import Login from './Login/Login';
 import Register from './Register/Register';
 import { getCookie } from './cookies';
+import About from './User/About/About';
 
 export default function Routes() {
     // const {session:{user:{token}}}=useContext(SessionContext)
@@ -36,6 +37,7 @@ export default function Routes() {
             <PublicRoute exact path="/dashboard"  component={SideNav} />
             <PublicRoute exact path="/login"  component={Login} token={token}/>
             <PublicRoute exact path="/register"  component={Register} />
+            <PublicRoute exact path="/about"  component={About} />
 
             <Route exact path="/addoffer"  component={AddOffer} token={token}/>
             <Route exact path="/editoffer/:id"  component={EditOffer} token={token}/>

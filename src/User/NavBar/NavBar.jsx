@@ -92,7 +92,7 @@ export default function Navbar() {
         <nav id="navbar" class="navbar">
           <ul>
             <li><Link class="nav-link scrollto active" to="/home">Home</Link></li>
-            <li><a class="nav-link scrollto" href="#about">About</a></li>
+            <li><a class="nav-link scrollto" href="/about">About</a></li>
             <li><Link class="nav-link scrollto" to="/offers">Offer</Link></li>
             <li><Link class="nav-link scrollto" to="/serviceprovider">Service Provider</Link></li>
             {token ? <li class="dropdown"><a href="#"><span>Account</span> <i class="bi bi-chevron-down"></i></a>

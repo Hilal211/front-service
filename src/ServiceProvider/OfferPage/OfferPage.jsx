@@ -6,9 +6,10 @@ import CardPostSp from '../../component/CardPostSp/CardPostSp';
 import swal from 'sweetalert'
 import ReactLoading from 'react-loading';
 import notfound from '../../image/notfound.gif'
-
+import LoginStatus from '../../LoginStatus';
+import { getCookie } from '../../cookies';
 export default function OfferPage() {
-    let id = `61477112bc2ab51ca300a43f`;
+    const id=getCookie('id')
     const [offer, setOffer] = useState([]);
 
     const getOffer = async (id) => {
@@ -60,6 +61,7 @@ export default function OfferPage() {
 
     return (
         <>
+        <LoginStatus/>
             {(!offer || offer == '') ? <div style={{ marginTop: "150px" }} > <center ><ReactLoading type="balls" color="blue" height={450} width={250} /></center> </div> : (offer && offer.message) ?
 
                 <section id="services" class="services">
@@ -108,6 +110,7 @@ export default function OfferPage() {
                                     title={p.title}
                                     description={p.description}
                                     delete={deleteOffer}
+                                    image={p.image}
                                 />
                             ))}
 

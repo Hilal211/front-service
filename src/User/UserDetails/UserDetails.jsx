@@ -54,7 +54,7 @@ export default function UserDetails(props) {
                         for (let i = 0; i < result.length; i++) {
                             if (result[i].rate == 5) {
                                 s5++;
-                            } else if (result[i].rate == 5) {
+                            } else if (result[i].rate == 4) {
                                 s4++;
                             } else if (result[i].rate == 3) {
                                 s3++;
@@ -178,7 +178,7 @@ export default function UserDetails(props) {
                                     <div className="col-sm-6 mb-3">
                                         <div className="card h-100">
                                             <div className="card-body">
-                                                <h6 className="d-flex align-items-center mb-3"><i className="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                                                <h6 className="d-flex align-items-center mb-3">Rating</h6>
                                                 <small><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></small>
                                                 <div className="progress mb-3" style={{ height: '5px' }}>
                                                     <div className="progress-bar bg-primary" role="progressbar" style={{ width: stat[0] + '%' }} />

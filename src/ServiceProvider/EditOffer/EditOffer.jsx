@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import API from '../../api'
 import { useHistory } from 'react-router';
+import LoginStatus from '../../LoginStatus';
 export default function EditOffer(props) {
     const [detail, setDetail] = useState([]);
     const [title, setTitle] = useState("");
@@ -60,6 +61,7 @@ export default function EditOffer(props) {
     }, [])
     return (
         <section class="section sectionAdd">
+            <LoginStatus/>
             <div class="container">
                 <div class="row">
                     {/* <div class="col-12 text-center">
@@ -70,13 +72,13 @@ export default function EditOffer(props) {
                             <h4 class="mb-80 ">Edit Offer</h4>
                             <form class="row" onSubmit={handleSubmit} encType="multipart/form-data">
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Title" class="form-control px-0 mb-4"
+                                    < input autoComplete="off" type="text" placeholder="Title" class="form-control px-0 mb-4"
                                         value={title}
                                         onChange={(e) => setTitle(e.target.value)}
                                         required />
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" placeholder="Description" class="form-control px-0 mb-4"
+                                    < input autoComplete="off" type="text" placeholder="Description" class="form-control px-0 mb-4"
                                         value={description}
                                         onChange={(e) => setDescription(e.target.value)}
                                         required />
@@ -93,10 +95,10 @@ export default function EditOffer(props) {
                                     <label for="file-upload" class="custom-file-upload">
                                         <i class="bi bi-card-image"></i> Image
                                     </label>
-                                    <input id="file-upload" type="file" name="fileImage" accept="image/*" multiple={false} onChange={onChangeFile} />
+                                    < input autoComplete="off" id="file-upload" type="file" name="fileImage" accept="image/*" multiple={false} onChange={onChangeFile} />
                                 </div>
                                 <div class="col-lg-6 col-10 mx-auto">
-                                    <input class="btn btn-primary w-50" type="submit" value="Save" />
+                                    < input autoComplete="off" class="btn btn-primary w-50" type="submit" value="Save" />
                                 </div>
                             </form>
                         </div>

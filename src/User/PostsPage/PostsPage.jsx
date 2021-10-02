@@ -70,7 +70,7 @@ export default function PostsPage() {
 
             <header class="section-header mt-5">
               <h2>Service Provider</h2>
-              <p > Check latest post</p>
+              <p > Check these special offers</p>
             </header>
 
             <div class="row">
@@ -109,8 +109,8 @@ export default function PostsPage() {
           <div class="container" data-aos="fade-up">
 
             <header class="section-header" style={{ marginTop: '40px' }}>
-              <h2>Post</h2>
-              <p>Check latest post</p>
+              <h2>Offers</h2>
+              <p>Check these special offers</p>
             </header>
             <div class="row">
               <div class="col-lg-12 d-flex justify-content-center">

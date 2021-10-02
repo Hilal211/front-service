@@ -7,53 +7,78 @@ import i3 from '../../image/Picture3.jpg'
 import i4 from '../../image/Picture4.jpg'
 import i5 from '../../image/Picture5.jpg'
 import i6 from '../../image/Picture6.jpg'
-import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import API from '../../api'
+import { FaStar } from "react-icons/fa";
+
+import { useEffect, useState } from 'react'
 export default function HomePage() {
+
+  const [rate, setRAte] = useState([]);
+  const colors = {
+    orange: "#FBC014",
+    grey: "#a9a9a9"
+
+  };
+
+  const stars = Array(5).fill(0)
+
+  const getRate = async () => {
+
+    await API.get(`rating/getfiverate`)
+      .then(res => {
+        const result = res.data;
+        setRAte(result);
+      });
+  }
+
+
   useEffect(() => {
+
     window.scroll({
       top: 0,
       left: 0,
     });
+    getRate();
   }, [])
   const post = [
     {
       id: 1,
       image: i1,
-      title:"Mobile Mechanisms",
-      desc:"service for your car"
+      title: "Mobile Mechanisms",
+      desc: "service for your car"
     },
     {
       id: 2,
       image: i2,
-      title:"Cleaners",
-      desc:"We clean, you rest"
+      title: "Cleaners",
+      desc: "We clean, you rest"
     },
     {
       id: 3,
       image: i3,
-      title:"Home Maintance",
-      desc:"We fixe your ideas"
+      title: "Home Maintance",
+      desc: "We fixe your ideas"
     },
     {
       id: 4,
       image: i4,
-      title:"Barber",
-      desc:"We take care of your hair"
+      title: "Barber",
+      desc: "We take care of your hair"
     },
     {
       id: 5,
       image: i5,
-      title:"Pets Care",
-      desc:"We give your pets love"
+      title: "Pets Care",
+      desc: "We give your pets love"
     },
     {
       id: 6,
       image: i6,
-      title:"Electronics",
-      desc:"We fix your electronics"
+      title: "Electronics",
+      desc: "We fix your electronics"
     }
   ]
-  const rate = [1, 1, 1]
   return (
     <>
       <section id="hero" class="hero d-flex align-items-center">
@@ -66,7 +91,7 @@ export default function HomePage() {
               <div data-aos="fade-up" data-aos-delay="600">
                 <div class="text-center text-lg-start">
                   <a href="#about" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-                    <span>Get Started</span>
+                    <span><Link class="link" to="/offers">Get Started</Link></span>
                     <i class="bi bi-arrow-right"></i>
                   </a>
                 </div>
@@ -94,10 +119,10 @@ export default function HomePage() {
                   The service provider can add a post describing their sitution and needs. In the addition the vistor can check the review of any service provider.
                 </p>
                 <div class="text-center text-lg-start">
-                  <a href="#" class="btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
+                  <Link to="/about" class="link btn-read-more d-inline-flex align-items-center justify-content-center align-self-center">
                     <span>Read More</span>
                     <i class="bi bi-arrow-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -117,7 +142,7 @@ export default function HomePage() {
         <div class="container" data-aos="fade-up">
 
           <header class="section-header">
-            <h2>Posts</h2>
+            <h2>categories</h2>
             <p>Check our categories</p>
           </header>
 
@@ -160,34 +185,43 @@ export default function HomePage() {
           </header>
 
           <div class="row gy-4 portfolio-container" data-aos="fade-up" data-aos-delay="200">
-            <div class="swiper-wrapper row">
 
-              {rate.map((r =>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app mb-3 box" style={{ width: "35%" }}>
-                  <div class="testimonial-item">
-                    <div class="stars">
-                      <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                    </div>
-                    <p>
-                      Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                    </p>
-                    <div class="profile mt-auto">
-                      {/* <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt=""> */}
-                      <h3>Saul Goodman</h3>
-                      <h4>Ceo &amp; Founder</h4>
-                    </div>
+            {rate.slice(0, 3).map((p =>
+              <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 portfolio-item filter-app box" >
+
+                <div class="testimonial-item" >
+                  <div class="stars">
+
+                    {stars.map((_, index) => {
+                      return (
+                        <FaStar
+                          key={index}
+                          size={24}
+                          color={(p.rate) > index ? colors.orange : colors.grey}
+                          style={{
+                            marginRight: 10,
+                          }}
+                        />
+                      )
+                    })}
+
+                  </div>
+                  <p>
+                    {p.description}
+                  </p>
+                  <div class="profile mt-auto">
+                    <h3>{p.name}</h3>
+                    <h4>{p.email}</h4>
                   </div>
                 </div>
-              ))}
+              </div>
+            ))}
 
 
-
-
-            </div>
-            <div class="swiper-pagination"></div>
           </div>
-
+          <div class="swiper-pagination"></div>
         </div>
+
 
       </section>
 

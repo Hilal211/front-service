@@ -18,7 +18,7 @@ const history=useHistory();
     function initializeSession() {
       let id = getCookie('id');
       let token = getCookie('token');
-      if (token) fetch(`https://localhost:3002/users/${id}`, {
+      if (token) fetch(`https://192.168.152.151:3002/users/${id}`, {
         headers: {
           'oken': token
         }
@@ -39,7 +39,7 @@ const history=useHistory();
   async function login({ email, password }) {
 
     // try to login
-    let res = await fetch('http://localhost:3002/users/login', {
+    let res = await fetch('http://192.168.152.151:3002/users/login', {
       method: "post",
       headers: {
         'Content-type': 'application/json'

@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import API from '../../api'
 import { indexOf } from 'lodash';
 import { useHistory } from 'react-router';
+import LoginStatus from '../../LoginStatus';
+import {getCookie} from '../../cookies'
+
 export default function AddOffer(props) {
   const [user, setUser] = useState([]);
   const [title, setTitle] = useState("");
@@ -10,8 +13,9 @@ export default function AddOffer(props) {
   const [content, setContent] = useState("");
   const [fileName, setFileName] = useState("");
   let history = useHistory();
+  const id=getCookie('id')
 
-  let id = `61477112bc2ab51ca300a43f`;
+  // let id = `61477112bc2ab51ca300a43f`;
   const getUser = async (id) => {
 
     await API.get(`users/${id}`)
@@ -22,6 +26,7 @@ export default function AddOffer(props) {
       });
   }
   var file;
+  
   const onChangeFile = (e) => {
     file = e.target.files[0]
     setFileName(file)
@@ -30,6 +35,7 @@ export default function AddOffer(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     var date = new Date();
+    
     const body = new FormData();
     body.append('title', title);
     body.append('description', description);
@@ -53,10 +59,12 @@ export default function AddOffer(props) {
       top: 0,
       left: 0,
     });
+    console.log(id);
     getUser(id);
   }, [])
   return (
     <section class="section sectionAdd">
+      <LoginStatus/>
       <div class="container">
         <div class="row">
           {/* <div class="col-12 text-center">
@@ -67,13 +75,13 @@ export default function AddOffer(props) {
               <h4 class="mb-80 ">Add Offer</h4>
               <form class="row" onSubmit={handleSubmit} encType="multipart/form-data">
                 <div class="col-md-6">
-                  <input type="text" name="title" placeholder="Title" class="form-control px-0 mb-4"
+                  < input autoComplete="off" type="text" name="title" placeholder="Title" class="form-control px-0 mb-4"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required />
                 </div>
                 <div class="col-md-6">
-                  <input type="text" placeholder="Description" class="form-control px-0 mb-4"
+                  < input autoComplete="off" type="text" placeholder="Description" class="form-control px-0 mb-4"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     required />
@@ -100,11 +108,11 @@ export default function AddOffer(props) {
                   <label for="file-upload" class="custom-file-upload">
                   <i class="bi bi-card-image"></i> Image
                   </label>
-                  <input id="file-upload" type="file" name="fileImage" accept="image/*" multiple={false} onChange={onChangeFile} />
+                  < input autoComplete="off" id="file-upload" type="file" name="fileImage" accept="image/*" multiple={false} onChange={onChangeFile} />
 
                 </div>
                 <div class="col-lg-6 col-10 mx-auto">
-                  <input class="btn btn-primary w-50" type="submit" value="Add" style={{background:"#5B6EF3"}}/>
+                  < input autoComplete="off" class="btn btn-primary w-50" type="submit" value="Add" style={{background:"#5B6EF3"}}/>
                 </div>
               </form>
             </div>

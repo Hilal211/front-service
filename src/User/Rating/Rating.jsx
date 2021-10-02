@@ -60,12 +60,12 @@ export default function Rating(props) {
                             <form class="row" class="container" onSubmit={handleSubmit}>
                                 <div class="row">
                                     <div class="col-md-6 container">
-                                        <input type="text" name="Your name" placeholder="Your name" class="form-control px-0 mb-4"
+                                        < input autoComplete="off" type="text" name="Your name" placeholder="Your name" class="form-control px-0 mb-4"
                                             onChange={(e) => setName(e.target.value)}
                                             required />
                                     </div>
                                     <div class="col-md-6 container">
-                                        <input type="text" name="Your email" placeholder="Your email" class="form-control px-0 mb-4"
+                                        < input autoComplete="off" type="text" name="Your email" placeholder="Your email" class="form-control px-0 mb-4"
                                             onChange={(e) => setEmail(e.target.value)}
                                             required />
                                     </div>
@@ -98,7 +98,7 @@ export default function Rating(props) {
                                 </div>
 
                                 <div class="col-lg-6 col-10 mx-auto">
-                                    <input class="btn btn-primary w-50" type="submit" value="Save"  style={{background:"#5B6EF3"}}/>
+                                    < input autoComplete="off" class="btn btn-primary w-50" type="submit" value="Save"  style={{background:"#5B6EF3"}}/>
                                 </div>
                             </form>
                         </div>

@@ -64,7 +64,7 @@ let id=props.match.params.id
                 <article class="entry entry-single">
 
                   <div class="entry-img">
-                    <img src={`http://localhost:3002/uploads/${detail.image}`} alt="" class="img-fluid" />
+                    <img src={`http://192.168.152.151:3002/uploads/${detail.image}`} alt="" class="img-fluid" />
                   </div>
 
                   <h2 class="entry-title">
@@ -79,29 +79,27 @@ let id=props.match.params.id
                   </div>
 
                   <div class="entry-content">
-                    <p>
-                      {detail.description}
-                    </p>
+                 
 
 
                     <blockquote>
                       <p>
-                      Please be respectful and not insulting under penalty of perjury, and thank you.
+                      {detail.description}
                       </p>
                     </blockquote>
 
-                    <p>
+                    <p  style={{fontSize:"17px",lineHeight:"1.8"}}>
                       {detail.content}
                     </p>
                   </div>
-                  <div class="entry-footer">
-                    <button class="btnwp"><a href={`https://api.whatsapp.com/send/?phone=${phoneNumber}`}>Contact</a>
+                  <div>
+                    <button class="btnwp"><a href={`https://api.whatsapp.com/send/?phone=${phoneNumber}`} target="_blank" class="link"><i class="bi bi-whatsapp"></i> Contact</a>
                     </button>
                   </div>
                 </article>
                 <div class="blog-author d-flex align-items-center">
                   <div>
-                    <h4>{userName}</h4>
+                    <h4 style={{textTransform:"capitalize"}}>{userName}</h4>
                     <div class="social-links">
                       <a href={`https://api.whatsapp.com/send/?phone=${phoneNumber}`}><i class="bi bi-whatsapp"></i></a>
                       <a href={facebook} target="_blank"><i class="bi bi-facebook"></i></a>
@@ -133,11 +131,11 @@ let id=props.match.params.id
                     </ul>
                   </div>
 
-                  <h3 class="sidebar-title">Recent Posts</h3>
+                  <h3 class="sidebar-title">Recent Offers</h3>
                   <div class="sidebar-item recent-posts">
                     {offer.slice(0, 5).filter((offer) => offer._id !== detail._id).map((p=>
                        <div class="post-item clearfix mb-4 w3-animate-bottom">
-                       <img src={`http://localhost:3002/uploads/${p.image}`} alt="" />
+                       <img src={`http://192.168.152.151:3002/uploads/${p.image}`} alt="" />
                        <h4><Link to={`/offerdetail/${p._id}`}>{p.title}</Link></h4>
                        <time datetime="2020-01-01">{p.date.substring(0, p.date.indexOf('T'))}</time>
                      </div>

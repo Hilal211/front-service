@@ -53,19 +53,19 @@ export default function Login() {
                         <form onSubmit={handleSubmit} class="register-form" id="login-form">
                             <div class="form-group">
                                 <label class="labell" for="your_name"><i class="iconl bi bi-person-fill"></i></label>
-                                <input class="inputl" type="text" name="email"
+                                < input  class="inputl" type="text" name="email"
                                     value={email}
                                     autoComplete="off"
                                     onChange={handleChange} id="your_name" placeholder="Your Name" />
                             </div>
                             <div class="form-group">
                                 <label class="labell" for="your_pass"><i class="iconl bi bi-shield-lock-fill"></i></label>
-                                <input class="inputl" type="password" name="password"
+                                < input  class="inputl" type="password" name="password"
                                     value={password}
                                     onChange={handleChange} id="your_pass" placeholder="Password" />
                             </div>
                             <div class="">
-                                <input class="inputl" type="submit" name="signin" id="signin" class="fbtn btn-primary w-50 loginb" value="Log in" />
+                                < input autoComplete="off" class="inputl" type="submit" name="signin" id="signin" class="fbtn btn-primary w-50 loginb" value="Log in" />
                             </div>
                         </form>
 
